@@ -13,6 +13,12 @@ describe("App component", () => {
     expect(getByText("Hello Jest")).toBeInTheDocument();
   });
 
+  it("should paragraph render correctly", () => {
+    const { getByText } = render(<App />);
+
+    expect(getByText("Paragraph")).toBeInTheDocument();
+  });
+  
   it("should have attribute", () => {
     const { getByText } = render(<App />);
 
