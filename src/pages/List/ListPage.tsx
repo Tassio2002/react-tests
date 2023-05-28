@@ -1,6 +1,6 @@
-import { List } from "../components/List";
+import { List } from "../../components/List";
 
-function ListTest() {
+function ListPage() {
   return (
     <>
       <h1>Hello Jest</h1>
@@ -10,4 +10,4 @@ function ListTest() {
   );
 }
 
-export default ListTest;
+export default ListPage;

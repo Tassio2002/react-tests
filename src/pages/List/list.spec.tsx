@@ -1,32 +1,33 @@
+
 /** @jest-environment jsdom */
 /* eslint-disable testing-library/prefer-screen-queries*/
 /* eslint-disable testing-library/no-debugging-utils*/
-/* eslint-disable testing-library/prefer-query-by-disappearance */
+
 import { render, waitForElementToBeRemoved } from "@testing-library/react";
 import UserEvent from "@testing-library/user-event";
-import App from "./App";
+import ListPage from "./ListPage";
 
-describe("App component", () => {
+describe("ListPage component", () => {
   it("should title render correctly", () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(<ListPage />);
 
     expect(getByText("Hello Jest")).toBeInTheDocument();
   });
 
   it("should paragraph render correctly", () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(<ListPage />);
 
     expect(getByText("Paragraph")).toBeInTheDocument();
   });
   
   it("should have attribute", () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(<ListPage />);
 
     expect(getByText("Paragraph")).toHaveAttribute("class", "test");
   });
 
   it("should be able to add new item to the list", async () => {
-    const { getByText, getByPlaceholderText } = render(<App />);
+    const { getByText, getByPlaceholderText } = render(<ListPage />);
 
     const addBtn = getByText("Add");
 
@@ -42,13 +43,14 @@ describe("App component", () => {
   });
 
   it("should be able to remove item to the list", async () => {
-    const { getByText, getAllByText } = render(<App />);
+    const { getByText, getAllByText } = render(<ListPage />);
 
     const removeButtons = getAllByText("Remove");
 
     await UserEvent.click(removeButtons[0])
 
     await waitForElementToBeRemoved(() => {
+      // eslint-disable-next-line testing-library/prefer-query-by-disappearance
       return getByText('MotherBoard')
     })
   });

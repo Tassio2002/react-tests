@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
-import ListTest from "./pages/ListPage";
-import SearchPage from "./pages/SearchPage";
+import ListPage from "./pages/List/ListPage";
+import SearchPage from "./pages/Search/SearchPage";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       </nav>
       <Routes>
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/list" element={<ListTest />} />
+        <Route path="/list" element={<ListPage />} />
       </Routes>
     </>
   );
