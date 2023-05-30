@@ -1,3 +1,4 @@
+import fetch from "cross-fetch";
 import { useState } from "react";
 
 function SearchPage() {
@@ -6,6 +7,8 @@ function SearchPage() {
   const [error, setError] = useState("");
 
   const getImage = () => {
+      setError("");
+
     fetch(`https://api.unsplash.com/search/photos?page=1&query=${car}`, {
       method: "get",
       headers: new Headers({
@@ -22,7 +25,7 @@ function SearchPage() {
   return (
     <>
       <h1>Search Car</h1>
-      <input type="text" onChange={(e) => setCar(e.target.value)} />
+      <input type="text" placeholder="Search here.." onChange={(e) => setCar(e.target.value)} />
       <button onClick={car.length > 1 ? getImage : handleError}>Search</button>
       <span>{error}</span>
       <div className="result">

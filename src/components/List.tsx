@@ -15,7 +15,6 @@ export function List() {
   const removeFromList = (item: string) => {
     setTimeout(() => {
       setHardware((state) => state.filter((items) => items !== item));
-      console.log(item);
     }, 500);
   };
   return (
